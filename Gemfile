@@ -69,3 +69,5 @@ end
 
 
 gem 'devise'
+gem 'bootstrap', '~> 5.0.0'
+gem 'webpacker'
