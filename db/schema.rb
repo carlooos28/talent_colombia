@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_20_003921) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_20_023712) do
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer "performance_review_id"
+    t.integer "author_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "objectives", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.date "due_date"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "performance_reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "objective_id"
+    t.integer "rating"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email", default: "", null: false
